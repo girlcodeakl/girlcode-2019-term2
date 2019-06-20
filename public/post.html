@@ -13,10 +13,22 @@
   </head>
   <body>
       <form method="post" action="/posts">
-          <input type="text" name="message" value="message goes here">
-          <button>Post it!</button>
-          <h1 class="title">Posting Feed</h1>
-        
+          <input type="text" name="message" value="message goes here" class="messageInput">
+          <button class ="postButton" > Post it!</button>
       </form>
+   <script>
+        function sendMessageToServer(e) { document.querySelector(".note").innerHTML = "Thanks! Your message was saved!";
+    e.preventDefault();
+    let data = {};
+    data.message = document.querySelector(".messageInput").value;
+fetch("/posts", {
+  method:"POST",
+  body: JSON.stringify(data),
+  headers: {'Content-Type': 'application/json'}
+});
+}
+document.querySelector(".postButton").addEventListener("click", sendMessageToServer);
+    </script>
+    <div class="note"></div>
   </body>
 </html>
