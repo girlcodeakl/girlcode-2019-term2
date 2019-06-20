@@ -1,7 +1,10 @@
 body {
   text-align: center;
 }
-
+/* Add a black background color to the top navigation */
+.nav-bar {
+  background-color: pink ;
+}
 .message-list {
   background-color: #FFF0A5;
   padding: 20px;
