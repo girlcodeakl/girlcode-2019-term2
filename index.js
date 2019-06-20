@@ -24,8 +24,9 @@ app.get('/posts', sendPostsList);
 function saveNewPost(request, response) {
   console.log(request.body.message); //write it on the command prompt so we can see
   let post= {};
-post.message = request.body.message;
-posts.push(post); //save it in our list
+  post.message = request.body.message;
+  post.image = request.body.image;
+  posts.push(post); //save it in our list
   response.send("thanks for your message. Press back to add another");
 }
 app.post('/posts', saveNewPost);
