@@ -15,7 +15,8 @@
       <form method="post" action="/posts">
           <input type="text" name="message" value="message goes here" class="messageInput">
           <input type="text" name="author" value="authors name goes here" class="authorInput">
-          <button class ="postButton" > Post it!</button>
+          <input type="text" name="image" value="URL of image" class="imageInput">
+          <button class ="postButton">Post it!</button>
       </form>
    <script>
         function sendMessageToServer(e) { document.querySelector(".note").innerHTML = "Thanks! Your message was saved!";
@@ -23,7 +24,8 @@
     let data = {};
     data.message = document.querySelector(".messageInput").value;
     data.author = document.querySelector(".authorInput").value;
-fetch("/posts", {
+    data.image = document.querySelector(".imageInput").value;
+    fetch("/posts", {
   method:"POST",
   body: JSON.stringify(data),
   headers: {'Content-Type': 'application/json'}
