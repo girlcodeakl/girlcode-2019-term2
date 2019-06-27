@@ -14,6 +14,7 @@
   <body>
       <form method="post" action="/posts">
           <input type="text" name="message" value="message goes here" class="messageInput">
+          <input type="text" name="author" value="authors name goes here" class="authorInput">
           <button class ="postButton" > Post it!</button>
       </form>
    <script>
@@ -21,6 +22,7 @@
     e.preventDefault();
     let data = {};
     data.message = document.querySelector(".messageInput").value;
+    data.author = document.querySelector(".authorInput").value;
 fetch("/posts", {
   method:"POST",
   body: JSON.stringify(data),
