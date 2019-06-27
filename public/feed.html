@@ -20,7 +20,6 @@
     <h1 class="title">Message Feed</h1>
     <div class="message-list">
         
-  
           <div class="Post-something ">
     </div>
     <script>
@@ -31,11 +30,11 @@ function displayMessage(post) {
   let postHTML = 
   '<div class="post">'
   + '<div class="message">' + post.message + '</div>'
+  + '<div class="message">' + post.author + '</div>'
   + '</div>'
   + '<div class="image">' + '<img src=' + post.image + '>' + '</div>'
   +'<div class="time">' +
     timeago.format(post.time) +'</div>';
-  ;
 
   let messageList = document.querySelector(".message-list");
   messageList.innerHTML += postHTML;
