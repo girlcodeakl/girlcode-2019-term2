@@ -16,7 +16,11 @@
   <body>
     <h1 class="title">Message Feed</h1>
     <div class="message-list">
-        
+  <style>
+ .postId {
+   display: none;
+ } 
+ </style>
   
           <div class="Post-something ">
     </div>
@@ -30,6 +34,7 @@ function displayMessage(post) {
   + '<div class="message">' + post.message + '</div>'
   + '</div>'
   + '<div class="image">' + '<img src=' + post.image + '>' + '</div>'
+  + '<div class="postId">' + post.id + '</div>'
   ;
 
   let messageList = document.querySelector(".message-list");
