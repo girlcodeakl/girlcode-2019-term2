@@ -29,6 +29,7 @@ function saveNewPost(request, response) {
   post.author=request.body.author;//write it on the command prompt so we can see
   post.message = request.body.message;
   post.image = request.body.image;
+  post.time = new Date();
   posts.push(post); //save it in our list
   response.send("thanks for your message. Press back to add another");
   databasePosts.insert(post);

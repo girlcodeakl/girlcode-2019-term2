@@ -3,8 +3,10 @@
   <head>
     <meta charset='utf-8'>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="/timeago.min.js"></script>
     <title>Message Feed</title>
     <link rel="stylesheet" href="style.css">
+    
     <div class="nav-bar">
     <ul>
         <li><a href="/index.html">Home</a></li>
@@ -12,6 +14,7 @@
         <li><a href="/feed.html">Read the feed</a></li>
       </ul>
      </div>
+    
   </head>
   <body>
     <h1 class="title">Message Feed</h1>
@@ -29,7 +32,9 @@ function displayMessage(post) {
   + '<div class="message">' + post.message + '</div>'
   + '<div class="message">' + post.author + '</div>'
   + '</div>'
-  + '<div class="image">' + '<img src=' + post.image + '>' + '</div>';
+  + '<div class="image">' + '<img src=' + post.image + '>' + '</div>'
+  +'<div class="time">' +
+    timeago.format(post.time) +'</div>';
 
   let messageList = document.querySelector(".message-list");
   messageList.innerHTML += postHTML;
