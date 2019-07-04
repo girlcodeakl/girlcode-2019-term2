@@ -32,6 +32,9 @@ function saveNewPost(request, response) {
   post.author=request.body.author;//write it on the command prompt so we can see
   post.message = request.body.message;
   post.image = request.body.image;
+   if (post.image === "") {
+    post.image = "http://clipart-library.com/image_gallery/n1031450.jpg"
+  }
   post.id = Math.round(Math.random() * 10000);
   post.time = new Date();
   posts.push(post); //save it in our list
@@ -46,7 +49,6 @@ app.get('/post', function (request, response) {
   let post = posts.find(x => x.id == searchId);
   response.send(post);
 });
-
 
 //listen for connections on port 3000
 app.listen(process.env.PORT || 3000);
