@@ -16,6 +16,11 @@
           <input type="text" name="message" placeholder="message goes here" class="messageInput">
           <input type="text" name="author" placeholder="authors name goes here" class="authorInput">
           <input type="text" name="image" placeholder="URL of image" class="imageInput">
+          <input type="text" name="question" placeholder="question goes here" class="questionInput">
+          <input type="text" name="answer1" placeholder="answer1 goes here" class="answer1Input">
+          <input type="text" name="answer2" placeholder="answer2 goes here" class="answer2Input">
+          <input type="text" name="answer3" placeholder="answer3 goes here" class="answer3Input">
+          <input type="text" name="answer4" placeholder="answer4 goes here" class="answer4Input">
           <button class ="postButton">Post it!</button>
       </form>
    <script>
@@ -25,6 +30,11 @@
     data.message = document.querySelector(".messageInput").value;
     data.author = document.querySelector(".authorInput").value;
     data.image = document.querySelector(".imageInput").value;
+    data.question = document.querySelector(".questionInput").value;
+    data.answer1 = document.querySelector(".answer1Input").value;
+    data.answer2 = document.querySelector(".answer2Input").value;
+    data.answer3 = document.querySelector(".answer3Input").value;
+    data.answer4 = document.querySelector(".answer4Input").value;
     fetch("/posts", {
   method:"POST",
   body: JSON.stringify(data),
