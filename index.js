@@ -28,6 +28,11 @@ app.get('/posts', sendPostsList);
 function saveNewPost(request, response) {
   console.log(request.body.message); 
   console.log(request.body.author);
+  console.log(request.body.question);
+  console.log(request.body.answer1);
+  console.log(request.body.answer2);
+  console.log(request.body.answer3);
+  console.log(request.body.answer4);
   let post= {};
   post.author=request.body.author;//write it on the command prompt so we can see
   post.message = request.body.message;
@@ -37,6 +42,12 @@ function saveNewPost(request, response) {
   }
   post.id = Math.round(Math.random() * 10000);
   post.time = new Date();
+  post.question = request.body.question;
+  post.answers = []; //empty list
+  post.answers.push(request.body.answer1);
+  post.answers.push(request.body.answer2);
+  post.answers.push(request.body.answer3);
+  post.answers.push(request.body.answer4);
   posts.push(post); //save it in our list
   response.send("thanks for your message. Press back to add another");
   databasePosts.insert(post);
