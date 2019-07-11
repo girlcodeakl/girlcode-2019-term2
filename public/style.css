@@ -59,4 +59,21 @@ img {
   background-color: rgb(97, 86, 247);
   
 }
+
+.answerStat {
+  height: 30px;
+  background-color: #FF3B77;
+  padding-bottom: 4px;
+  margin: 5px;
+  color: #000000;
+ text-align: center; 
+ padding: 10px; 
+
+}
+
+.stats {
+  width: 400px;
+}
+
 .hidden {display: none}
+

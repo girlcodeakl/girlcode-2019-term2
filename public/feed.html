@@ -44,6 +44,11 @@ if (element.innerHTML.toLowerCase().includes(searchText.toLowerCase())) {
 document.querySelector(".filter").addEventListener("keyup", filterFeed);
 
 function displayMessage(post) {
+
+  if (post.answerCount === undefined) {
+  post.answerCount = [5, 10, 10, 75];
+  post.totalAnswers = 100;
+}
   if (!post.answers) post.answers = ["one", "two", "three", "four"]; //For testing only
   let postHTML = 
   '<div class="post">'
@@ -51,7 +56,6 @@ function displayMessage(post) {
   + '<div class="message">' + post.author + '</div>'
   + '<div class="image">' + '<img src=' + post.image + '>' + '</div>'
   + '<div class="time">' + timeago.format(post.time) +'</div>'
-  + '</div>' 
   + '<div class="pollContainer">'
   + '<div class="postId">' + post.id + '</div>'
   + '<div class="question">' + post.question + '</div>'
@@ -59,8 +63,14 @@ function displayMessage(post) {
   + '<div class="answerButton" data-id="1">' + post.answers[1] + '</div>' 
   + '<div class="answerButton" data-id="2">' + post.answers[2] + '</div>' 
   + '<div class="answerButton" data-id="3">' + post.answers[3] + '</div>' 
-  + '</div>';
-  + '</div>' 
+   +  '<div class="stats">'
+    +  '<div class="answerStat" style="width:' + (post.answerCount[0] / post.totalAnswers) *100 +'%">' + post.answerCount[0] + '</div>'
+    +  '<div class="answerStat" style="width:' + (post.answerCount[1] / post.totalAnswers) *100 +'%">' + post.answerCount[1] + '</div>'
+    +  '<div class="answerStat" style="width' + (post.answerCount[2] / post.totalAnswers) *100 +'%">' + post.answerCount[2] + '</div>'
+    + '<div class="answerStat" style="width' + (post.answerCount[3] / post.totalAnswers) *100 +'%">' + post.answerCount[3] + '</div>'
+  + '</div>'
+   + '</div>' 
+   + '</div>' 
   let messageList = document.querySelector(".message-list");
   messageList.innerHTML += postHTML;
 }
