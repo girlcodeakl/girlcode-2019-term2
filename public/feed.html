@@ -52,6 +52,8 @@ function displayMessage(post) {
 }
 
 function createFeed(posts) {
+  posts.reverse();
+
   posts.forEach(displayMessage);
 }
 
@@ -66,6 +68,7 @@ function messageListClick(e) {
     console.log("something else was clicked")
   }
 }
+
 
 let messageList = document.querySelector(".message-list");
 messageList.addEventListener("click", messageListClick);
