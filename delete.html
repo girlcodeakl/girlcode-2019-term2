@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <link rel="stylesheet" href="style.css">
+    <div class="nav-bar">
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/post.html">Post on the feed</a></li>
+            <li><a href="/feed.html">Read the feed</a></li>
+          </ul>
+         </div>
+  </head>
+  <body>
+      <form method="posts">
+          <input type="text" name="message" placeholder="message goes here" class="messageInput">
+          <input type="text" name="author" placeholder="authors name goes here" class="authorInput">
+          <input type="text" name="idNumber" placeholder="id Number goes here" class="idNumberInput">
+          <input type="text" name="password" placeholder="password name goes here" class="passwordInput">
+          <button class ="postButton">Post it!</button>
+      </form>
+   <script>
+        function sendMessageToServer(e) { document.querySelector(".note").innerHTML = "Thanks! Your message was saved!";
+    e.preventDefault();
+    let data = {};
+    data.postId = document.querySelector(".idNumberInput").value;
+    data.password = document.querySelector(".passwordInput").value;
+    fetch("/delete", {
+  method:"POST",
+  body: JSON.stringify(data),
+  headers: {'Content-Type': 'application/json'}
+});
+}
+document.querySelector(".postButton").addEventListener("click", sendMessageToServer);
+    </script>
+    <div class="note"></div>
+  </body>
+</html>
