@@ -61,6 +61,26 @@ app.get('/post', function (request, response) {
   response.send(post);
 });
 
+function answerChosen(request, response) {
+  console.log("Post id: " + request.body.postId);
+  console.log("Answer number: " + request.body.answerNumber);
+  response.send("ok");
+
+let post = posts.find(x => x.id == request.body.postId);
+let answerNumber = parseInt(request.body.answerNumber);
+
+if (post.answerCount === undefined) {
+  post.answerCount = [0, 0, 0, 0]; //starting values
+  post.totalAnswers = 0;
+}
+post.answerCount[answerNumber]++; //increase counter by one
+post.totalAnswers++; //increase counter by one
+
+databasePosts.update({id: post.id}, post);
+
+}
+
+app.post("/answerChosen", answerChosen);
 //listen for connections on port 3000
 app.listen(process.env.PORT || 3000);
 console.log("Hi! I am listening at http://localhost:3000");
@@ -68,7 +88,9 @@ console.log("Hi! I am listening at http://localhost:3000");
 let MongoClient = require('mongodb').MongoClient;
 let databaseUrl = 'mongodb://girlcode:hats123@ds343887.mlab.com:43887/girlcode-2019-term2';
 let databaseName = 'girlcode-2019-term2';
- 
+
+
+
 MongoClient.connect(databaseUrl, {useNewUrlParser: true}, function(err, client) {
   if (err) throw err;
   console.log("yay we connected to the database");
@@ -79,4 +101,6 @@ MongoClient.connect(databaseUrl, {useNewUrlParser: true}, function(err, client) 
     console.log("Found " + results.length + " results");
     posts = results
   });
+  
 });
+
