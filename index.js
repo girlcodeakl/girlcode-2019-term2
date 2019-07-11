@@ -22,6 +22,12 @@ let posts = [];
 function sendPostsList(request, response) {
   response.send(posts);
 }
+function deleteHandler(request, response) {
+  console.log("client wants to delete this post: " + request.body.postId );
+   //code goes here
+  response.send("ok");
+}
+app.post("/delete", deleteHandler);
 app.get('/posts', sendPostsList);
 
 //let a client POST something new

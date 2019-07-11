@@ -11,14 +11,16 @@
     <ul>
         <li><a href="/index.html">Home</a></li>
         <li><a href="/post.html">Post on the feed</a></li>
-        <li><a href="/feed.html">Read the feed</a></li>
+        <li><a href="/feed.html">Read the feed</a></li> 
       </ul>
      </div>
-    
+     
   </head>
   <body>
     <h1 class="title">Message Feed</h1>
+    <input type="text" name="message" placeholder="search" class="filter">
     <div class="message-list">
+
   <style>
  .postId {
    display: none;
@@ -28,6 +30,18 @@
     </div>
     <script>
 //Hello! This is the start of the JavaScript.
+function filterFeed (){
+  let searchText =  document.querySelector(".filter").value;
+  console.log (searchText)
+  document.querySelectorAll(".post").forEach(function(element) {
+if (element.innerHTML.toLowerCase().includes(searchText.toLowerCase())) {
+  element.classList.remove("hidden") 
+} else {
+  element.classList.add("hidden");
+}
+ });
+}
+document.querySelector(".filter").addEventListener("keyup", filterFeed);
 
 function displayMessage(post) {
   if (!post.answers) post.answers = ["one", "two", "three", "four"]; //For testing only
@@ -36,22 +50,24 @@ function displayMessage(post) {
   + '<div class="message">' + post.message + '</div>'
   + '<div class="message">' + post.author + '</div>'
   + '<div class="image">' + '<img src=' + post.image + '>' + '</div>'
-    + '<div class="time">' + timeago.format(post.time) +'</div>'
+  + '<div class="time">' + timeago.format(post.time) +'</div>'
   + '</div>' 
   + '<div class="pollContainer">'
-    + '<div class="postId">' + post.id + '</div>'
+  + '<div class="postId">' + post.id + '</div>'
   + '<div class="question">' + post.question + '</div>'
   + '<div class="answerButton" data-id="0">' + post.answers[0] + '</div>' 
   + '<div class="answerButton" data-id="1">' + post.answers[1] + '</div>' 
   + '<div class="answerButton" data-id="2">' + post.answers[2] + '</div>' 
   + '<div class="answerButton" data-id="3">' + post.answers[3] + '</div>' 
   + '</div>';
-
+  + '</div>' 
   let messageList = document.querySelector(".message-list");
   messageList.innerHTML += postHTML;
 }
 
 function createFeed(posts) {
+  posts.reverse();
+
   posts.forEach(displayMessage);
 }
 
@@ -82,6 +98,7 @@ fetch("/answerChosen", {
     console.log("something else was clicked")
   }
 }
+
 
 let messageList = document.querySelector(".message-list");
 messageList.addEventListener("click", messageListClick);
