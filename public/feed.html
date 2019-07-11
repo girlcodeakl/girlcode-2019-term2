@@ -35,12 +35,16 @@ function displayMessage(post) {
   '<div class="post">'
   + '<div class="message">' + post.message + '</div>'
   + '<div class="message">' + post.author + '</div>'
-  + '</div>'
   + '<div class="image">' + '<img src=' + post.image + '>' + '</div>'
   + '<div class="postId">' + post.id + '</div>'
-  + '<div class="time">' + timeago.format(post.time) 
-  + '</div>' + '<div class="pollContainer">' + '<div class="answerButton">' + post.answers[0] + '</div>' + '<div class="answerButton">' + post.answers[1] 
-  + '</div>' + '<div class="answerButton">' + post.answers[2] + '</div>' + '<div class="answerButton">' + post.answers[3] + '</div>' + '</div>';
+  + '<div class="time">' + timeago.format(post.time) +'</div>'
+  + '</div>' 
+  + '<div class="pollContainer">' 
+  + '<div class="answerButton">' + post.answers[0] + '</div>' 
+  + '<div class="answerButton">' + post.answers[1] + '</div>' 
+  + '<div class="answerButton">' + post.answers[2] + '</div>' 
+  + '<div class="answerButton">' + post.answers[3] + '</div>' 
+  + '</div>';
 
   let messageList = document.querySelector(".message-list");
   messageList.innerHTML += postHTML;
