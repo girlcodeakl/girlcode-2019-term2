@@ -40,6 +40,13 @@
   body: JSON.stringify(data),
   headers: {'Content-Type': 'application/json'}
 });
+
+fetch("/answerChosen", {
+  method:"POST",
+  body: JSON.stringify(data),
+  headers: {'Content-Type': 'application/json'}
+});
+
 }
 document.querySelector(".postButton").addEventListener("click", sendMessageToServer);
     </script>

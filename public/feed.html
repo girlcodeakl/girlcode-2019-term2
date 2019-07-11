@@ -50,14 +50,15 @@ function displayMessage(post) {
   + '<div class="message">' + post.message + '</div>'
   + '<div class="message">' + post.author + '</div>'
   + '<div class="image">' + '<img src=' + post.image + '>' + '</div>'
-  + '<div class="postId">' + post.id + '</div>'
   + '<div class="time">' + timeago.format(post.time) +'</div>'
+  + '</div>' 
   + '<div class="pollContainer">'
+  + '<div class="postId">' + post.id + '</div>'
   + '<div class="question">' + post.question + '</div>'
-  + '<div class="answerButton">' + post.answers[0] + '</div>' 
-  + '<div class="answerButton">' + post.answers[1] + '</div>' 
-  + '<div class="answerButton">' + post.answers[2] + '</div>' 
-  + '<div class="answerButton">' + post.answers[3] + '</div>' 
+  + '<div class="answerButton" data-id="0">' + post.answers[0] + '</div>' 
+  + '<div class="answerButton" data-id="1">' + post.answers[1] + '</div>' 
+  + '<div class="answerButton" data-id="2">' + post.answers[2] + '</div>' 
+  + '<div class="answerButton" data-id="3">' + post.answers[3] + '</div>' 
   + '</div>';
   + '</div>' 
   let messageList = document.querySelector(".message-list");
@@ -76,7 +77,23 @@ fetch("/posts")
 
 function messageListClick(e) {
   if (e.target.classList.contains("answerButton")) {
-    console.log("button clicked!")
+    console.log("button clicked!");
+
+let answerNumber = e.target.dataset.id;
+let postIdElement = e.target.parentNode.querySelector(".postId");
+let postId = postIdElement.innerHTML;
+console.log("You chose post " + postId + ", answer " + answerNumber);
+
+let data = {};
+    data.postId = postId;
+    data.answerNumber = answerNumber;
+
+
+fetch("/answerChosen", {
+  method:"POST",
+  body: JSON.stringify(data),
+  headers: {'Content-Type': 'application/json'}
+});
   } else {
     console.log("something else was clicked")
   }
