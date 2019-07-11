@@ -1,17 +1,26 @@
 body {
   text-align: center;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 /* Add a black background color to the top navigation */
 .nav-bar {
   background-color: pink ;
 }
 .message-list {
-  background-color: #FFF0A5;
+  background-color: rgb(233, 181, 235);
+  border: 2px solid orange;
   padding: 20px;
 }
 
 h1 {
   color: #FFB03B;
+}
+
+.pollContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .post {
@@ -29,4 +38,24 @@ img {
 .time {
   font-weight: bold;
   color: #e90cde;
+}
+
+.answerButton {
+  display: block;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  padding: 4px;
+  margin: 4px;
+  border-radius: 15px;
+  width: 30%;
+  color: #39739d;
+  background-color: #E1ECF4;
+  border-color: #E1ECF4;
+  
+}
+
+.answerButton:hover {
+  color: white;
+  background-color: rgb(97, 86, 247);
+  
 }
