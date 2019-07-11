@@ -25,7 +25,14 @@ function sendPostsList(request, response) {
 function deleteHandler(request, response) {
   console.log("client wants to delete this post: " + request.body.postId );
    //code goes here
-  response.send("ok");
+   if (request.body.password === "1234") {
+    let postIdNumber = parseInt(request.body.postId);
+    posts = posts.filter(post => post.id != postIdNumber);
+    databasePosts.deleteOne({ id : postIdNumber })
+   response.send("ok");
+    //things that happen if the password was correct
+   } else {response.send("error");
+   }
 }
 app.post("/delete", deleteHandler);
 app.get('/posts', sendPostsList);
