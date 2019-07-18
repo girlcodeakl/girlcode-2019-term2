@@ -12,16 +12,23 @@
          </div>
   </head>
   <body>
+    <div class="post-it"></div>
       <form method="post" action="/posts">
-          <input type="text" name="message" placeholder="Enter Cafe name" class="messageInput">
+        <button class ="postButton">Post it!</button>
+        <div class="contentTab">
+        <input type="text" name="message" placeholder="Enter Cafe name" class="messageInput">
+        <input type="text" name="image" placeholder="URL of image" class="imageInput">
           <input type="text" name="author" placeholder="Add author" class="authorInput">
-          <input type="text" name="image" placeholder="URL of image" class="imageInput">
+          </div>
+          <div class="line1">
           <input type="text" name="question" placeholder="What is your question?" class="questionInput">
+          </div>
+          <div class="line2">
           <input type="text" name="answer1" placeholder="Enter option 1" class="answer1Input">
           <input type="text" name="answer2" placeholder="Enter option 2" class="answer2Input">
           <input type="text" name="answer3" placeholder="Enter option 3" class="answer3Input">
           <input type="text" name="answer4" placeholder="Enter option 4" class="answer4Input">
-          <button class ="postButton">Post it!</button>
+        </div>
       </form>
    <script>
         function sendMessageToServer(e) { document.querySelector(".note").innerHTML = "Thanks! Your message was saved!";

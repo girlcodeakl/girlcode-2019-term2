@@ -35,8 +35,32 @@ h1 {
   flex-direction: row;
   justify-content: space-between;
 }
+button {
+  display: block;
+  width: 100px;
+  height: 100px;
+  border-style:solid;
+  border-width: 20px;
+margin: auto;
+padding: 10px;
+}
+.contentTab { 
+padding: 40px;
+}
 
+.line1{ 
+padding: 20px;
+}
+.line2 {  
+  display: inline-block;
+  width: 170px;
+  padding: 10px;
+  border: 2px solid rgb(170, 102, 187);
+}
 .post {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
   margin: 10px;
   padding: 10px;
   border: 0px solid #FFB03B;
