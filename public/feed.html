@@ -46,8 +46,8 @@ document.querySelector(".filter").addEventListener("keyup", filterFeed);
 function displayMessage(post) {
 
   if (post.answerCount === undefined) {
-  post.answerCount = [5, 10, 10, 75];
-  post.totalAnswers = 100;
+  post.answerCount = [0, 0, 0, 0];
+  post.totalAnswers = 0;
 }
   if (!post.answers) post.answers = ["one", "two", "three", "four"]; //For testing only
   let postHTML = 
