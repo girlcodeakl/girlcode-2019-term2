@@ -58,9 +58,6 @@ padding: 20px;
   border: 2px solid rgb(170, 102, 187);
 }
 .post {
-    display: inline-block;
-    width: 100px;
-    height: 100px;
   margin: 10px;
   padding: 10px;
   border: 0px solid #FFB03B;
@@ -98,7 +95,9 @@ img {
   padding: 10px;
 }
 
-
+.answerButtons {
+  width: 30%;
+}
 
 .answerButton {
   display: block;
@@ -107,7 +106,7 @@ img {
   padding: 4px;
   margin: 4px;
   border-radius: 15px;
-  width: 30%;
+  width: 100%;
   color: #949494;
   background-color: #dadada;
   border-color: #E1ECF4;  
