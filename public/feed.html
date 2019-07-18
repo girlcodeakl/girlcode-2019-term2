@@ -59,11 +59,13 @@ function displayMessage(post) {
   + '<div class="pollContainer">'
   + '<div class="postId">' + post.id + '</div>'
   + '<div class="question">' + post.question + '</div>'
+  + '<div class="answerButtons">'
   + '<div class="answerButton" data-id="0">' + post.answers[0] + '</div>' 
   + '<div class="answerButton" data-id="1">' + post.answers[1] + '</div>' 
   + '<div class="answerButton" data-id="2">' + post.answers[2] + '</div>' 
   + '<div class="answerButton" data-id="3">' + post.answers[3] + '</div>' 
-   +  '<div class="stats">'
+  +'</div>'
+   +  '<div class="stats hidden">'
     +  '<div class="answerStat" style="width:' + (post.answerCount[0] / post.totalAnswers) *100 +'%">' + post.answerCount[0] + '</div>'
     +  '<div class="answerStat" style="width:' + (post.answerCount[1] / post.totalAnswers) *100 +'%">' + post.answerCount[1] + '</div>'
     +  '<div class="answerStat" style="width:' + (post.answerCount[2] / post.totalAnswers) *100 +'%">' + post.answerCount[2] + '</div>'
@@ -86,11 +88,18 @@ fetch("/posts")
   .then(createFeed);
 
 function messageListClick(e) {
+  const parentelement= e.target.parentElement.parentElement
+  const answers = parentelement.querySelector(".answerButtons")
+  const graph = parentelement.querySelector(".stats")
+  graph.classList.remove("hidden")
+  console.log(answers)
+ answers.classList.add("hidden")
+  console.log(e)
   if (e.target.classList.contains("answerButton")) {
     console.log("button clicked!");
 
 let answerNumber = e.target.dataset.id;
-let postIdElement = e.target.parentNode.querySelector(".postId");
+let postIdElement = e.target.parentNode.parentNode.querySelector(".postId");
 let postId = postIdElement.innerHTML;
 console.log("You chose post " + postId + ", answer " + answerNumber);
 
