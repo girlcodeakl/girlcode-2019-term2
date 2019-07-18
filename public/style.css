@@ -4,16 +4,21 @@ body {
 }
 /* Add a black background color to the top navigation */
 .nav-bar {
-  background-color: pink ;
+  background-color: #bebeba;
 }
+
+ul {
+  list-style: none;
+}
+
 .message-list {
-  background-color: rgb(233, 181, 235);
-  border: 2px solid orange;
+  background-color: #FFFFFF;
+  border: 0px solid orange;
   padding: 20px;
 }
 
 h1 {
-  color: #FFB03B;
+  color: #FF3B77 ;
 }
 
 .pollContainer {
@@ -21,24 +26,55 @@ h1 {
   align-items: center;
   flex-direction: column;
   justify-content: center;
+
+}
+
+.authorContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .post {
   margin: 10px;
   padding: 10px;
-  border: 2px solid #FFB03B;
+  border: 0px solid #FFB03B;
   border-radius: 5px;
-  color: #468966;
+  color: #52656B;
+}
+
+.message {
+  display: block;
+  margin: auto;
+  padding: 20px;
+  background-color: #52656B;
+  color: #FFFFFF;
+  width: 40%;
+  border-radius: 5px;
+  font-size: 30px;
 }
 
 img {
-  height: 200px;
+  width: 300px;
+  padding: 10px;
 }
 
 .time {
   font-weight: bold;
   color: #e90cde;
+  display: inline-block;
+  padding: 10px;
 }
+
+.author {
+  font-weight: bold;
+  color: #e90cde;
+  display: inline-block;
+  padding: 10px;
+}
+
+
 
 .answerButton {
   display: block;
@@ -48,15 +84,14 @@ img {
   margin: 4px;
   border-radius: 15px;
   width: 30%;
-  color: #39739d;
-  background-color: #E1ECF4;
-  border-color: #E1ECF4;
-  
+  color: #949494;
+  background-color: #dadada;
+  border-color: #E1ECF4;  
 }
 
 .answerButton:hover {
   color: white;
-  background-color: rgb(97, 86, 247);
+  background-color:#CDFF00;
   
 }
 

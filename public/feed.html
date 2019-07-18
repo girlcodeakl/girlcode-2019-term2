@@ -53,9 +53,9 @@ function displayMessage(post) {
   let postHTML = 
   '<div class="post">'
   + '<div class="message">' + post.message + '</div>'
-  + '<div class="message">' + post.author + '</div>'
-  + '<div class="image">' + '<img src=' + post.image + '>' + '</div>'
+  + '<div class="author">' + post.author + '</div>'
   + '<div class="time">' + timeago.format(post.time) +'</div>'
+  + '<div class="image">' + '<img src=' + post.image + '>' + '</div>'
   + '<div class="pollContainer">'
   + '<div class="postId">' + post.id + '</div>'
   + '<div class="question">' + post.question + '</div>'
